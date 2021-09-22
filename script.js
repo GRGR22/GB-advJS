@@ -12,14 +12,19 @@ let getClass = document.querySelector('.goods-list');
   ];
   
   const renderGoodsItem = (title, price) => {
-    return `<div class="goods-item"><h3>${title}</h3> - <p>$${price}</p></div>`;
+    console.log ('goodsList');
+    return `<div class="goods-item"><h3>${title}</h3> - <p>$${price}</p></div>`
   };
   
   const renderGoodsList = (list) => {
-    let goodsList = list.map(item => renderGoodsItem(item.title, item.price));
-    //document.querySelector(".goods-list").innerHTML = goodsList; // Вероятно innerHTML буквально транслитирирует содержимое массива, в результате, зпт появляются как HTML разметка
+    //   Изыскания по добавлению параметров по умолчаню не увенчались успехом.
+    //   Не нашел другого выхода, как добавить проверку на пустоту корзины.
+    //   Попахивает, но работает.
+    list.length ? 0: list = [{ title: 'Корзина пуста', price: 0 }];
+    
+    let goodsList = list.map((item) => renderGoodsItem(item.title, item.price));    
     goodsList.forEach(element => {
-        document.querySelector(".goods-list").innerHTML += element; // Вариант неравного боя с запятыми
+        document.querySelector(".goods-list").innerHTML += element;
     });
   }
   
