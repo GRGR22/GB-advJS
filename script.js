@@ -4,28 +4,50 @@ let getClass = document.querySelector('.goods-list');
     getClass.classList.toggle('display-none');
 };
 
-  const goods = [
-    { title: 'Shirt', price: 150 },
-    { title: 'Socks', price: 50 },
-    { title: 'Jacket', price: 350 },
-    { title: 'Shoes', price: 250 },
-  ];
-  
-  const renderGoodsItem = (title, price) => {
-    console.log ('goodsList');
-    return `<div class="goods-item"><h3>${title}</h3> - <p>$${price}</p></div>`
-  };
-  
-  const renderGoodsList = (list) => {
-    //   Изыскания по добавлению параметров по умолчаню не увенчались успехом.
-    //   Не нашел другого выхода, как добавить проверку на пустоту корзины.
-    //   Попахивает, но работает.
-    list.length ? 0: list = [{ title: 'Корзина пуста', price: 0 }];
-    
-    let goodsList = list.map((item) => renderGoodsItem(item.title, item.price));    
-    goodsList.forEach(element => {
-        document.querySelector(".goods-list").innerHTML += element;
-    });
+class GoodsItem {
+    constructor(title, price) {
+      this.title = title;
+      this.price = price;
+    }
+    render() {
+      return `<div class="goods-item"><h4>${this.title}</h4><p>$ ${this.price}</p></div>`;
+    }
+    TotalPrice(total) {
+        return `<div class="goods-item"><h3>Total Price :</h3><p>$ ${total}</p></div>`;
+      }
   }
-  
-  renderGoodsList(goods);
+
+class GoodsList {
+    constructor() {
+      this.goods = [];
+    }
+    fetchGoods() {
+      this.goods = [
+        { title: 'Shirt', price: 150 },
+        { title: 'Socks', price: 50 },
+        { title: 'Jacket', price: 350 },
+        { title: 'Shoes', price: 250 },
+      ];
+    }
+    render() {
+      let listHtml = '';
+      this.goods.forEach(good => {
+        const goodItem = new GoodsItem(good.title, good.price);
+        listHtml += goodItem.render();
+      });
+      document.querySelector('.goods-list').innerHTML = listHtml;
+    }
+    totalPrice() {
+        let totalPriceCount = 0;
+        this.goods.forEach(good => {
+            totalPriceCount += good.price          
+        });
+        const tp = new GoodsItem();        
+        document.querySelector('.goods-list').innerHTML += tp.TotalPrice(totalPriceCount);
+      }
+  };
+
+const list = new GoodsList();
+list.fetchGoods();
+list.render();
+list.totalPrice();
