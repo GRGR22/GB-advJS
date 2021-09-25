@@ -1,11 +1,13 @@
 
 .wrapper {
+    display: flex;
+    flex-direction: column;
     max-width: 1100px;
     margin: 0 auto;
-    display: flex;
 }
 .cart-button {
-    font-size: 20px;
+    margin-top: 50px;
+    width: 200px;
 }
 .goods-item {
     width: 100%;

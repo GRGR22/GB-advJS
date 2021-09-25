@@ -5,17 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>eShop</title>    
+    <title>ShaShop</title>    
 </head>
 <body>
     <div class="wrapper">    
-        <header>
-            <button class="cart-button" type="button">Корзина</button>
-        </header>
-        <main>
-            <div class="goods-list display-none"></div>
-        </main>
+        <div class="first__question">
+            <h1>Шаурма хочешь?</h1>
+
+            <form action="">
+                <input type="radio" id="shawarmaSize" name="shawarma" value="1">
+                <label for="shawarma">Маленький шаурма (для деуачек)</label><br>
+                <input type="radio" id="shawarmaSize" name="shawarma" value="2">
+                <label for="shawarma">Средний шаурма (для нармальных деуачек)</label><br>
+                <input type="radio" checked id="shawarmaSize" name="shawarma" value="3">
+                <label for="shawarma"></label>Мужской шаурма</label><br><br>
+            </form>
+        </div>
+
+        <div class="second__question">
+            <h2>Начинка хочешь добавлять буду?</h1>
+
+            <form action="">
+                <input type="checkbox" id="stuffing" name="shawarma" value="1">
+                <label for="stuffing">Ну сыр, там</label><br>
+                <input type="checkbox" id="stuffing" name="shawarma" value="2">
+                <label for="stuffing">Салат-шмалат</label><br>
+                <input type="checkbox" id="stuffing" name="shawarma" value="3">
+                <label for="stuffing">Картошка</label><br><br>
+            </form>
+        </div>
+
+        <div class="third__question">
+            <h2>Аджика добавлю?</h1>
+
+            <form action="">
+                <input type="radio" id="topping" name="condiments" value="1">
+                <label for="condiments">Нет - живот болит.</label><br>
+                <input type="radio" checked id="topping" name="condiments" value="2">
+                <label for="condiments">Да, давай побольше.</label><br>
+            </form>
+        </div>
+
+        <div class="fourth __question">
+            <h2>Мазик добавлять нада? Хороший, вчера привезли.</h1>
+
+            <form action="">
+                <input type="radio" checked id="topping" name="mayonnaise" value="3">
+                <label for="condiments">Нет, я и так жирный.</label><br>
+                <input type="radio" id="topping" name="mayonnaise" value="4">
+                <label for="condiments">Да, давай побольше.</label><br>
+                <input type="radio" id="topping" name="mayonnaise" value="5">
+                <label for="condiments">Налей с собой, дома сьем</label><br>
+            </form>
+        </div>
+
+        <button class="cart-button" type="button">Скока денях?</button>
+        <div class="goods-list display-none"></div>
     </div>
+
 </body>
 <script src="script.js"></script>
 
